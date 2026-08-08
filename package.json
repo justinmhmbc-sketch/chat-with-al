@@ -1,0 +1,10 @@
+{
+  "name": "chat-with-al",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Chat with Al — Artificial Unintelligence. A comedy chatbot.",
+  "engines": {
+    "node": ">=18"
+  }
+}

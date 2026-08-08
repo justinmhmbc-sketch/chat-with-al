@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chat with Al — Artificial Unintelligence</title>
+<meta name="description" content="Chat with Al. He's got an answer for everything. That's the problem." />
+
+<!-- Social preview -->
+<meta property="og:title" content="Chat with Al — Artificial Unintelligence" />
+<meta property="og:description" content="He's got an answer for everything. That's the problem." />
+<meta property="og:type" content="website" />
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧢</text></svg>" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="brand">
+      <div class="avatar" aria-hidden="true">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="58" fill="#d97b3f"/>
+          <path d="M18 55c0-25 19-40 42-40s42 15 42 40" fill="#8b5a2b"/>
+          <rect x="14" y="48" width="92" height="16" rx="8" fill="#c94f4f"/>
+          <circle cx="60" cy="70" r="34" fill="#e8b184"/>
+          <path d="M30 62c6-8 54-8 60 0" stroke="#5c3a21" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <circle cx="46" cy="70" r="4" fill="#3a2416"/>
+          <circle cx="74" cy="70" r="4" fill="#3a2416"/>
+          <path d="M40 90c8 8 32 8 40 0" stroke="#3a2416" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <path d="M32 88c4 10 52 10 56 0" stroke="#c94f4f" stroke-width="10" fill="none" stroke-linecap="round" opacity=".85"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <h1>Chat with <span class="al-name">Al</span></h1>
+        <p class="tagline">Artificial Unintelligence</p>
+      </div>
+    </div>
+
+    <a class="tip-btn" href="https://ko-fi.com/YOUR_KOFI_HANDLE" target="_blank" rel="noopener">
+      🍺 Buy Al a beer
+    </a>
+  </header>
+
+  <p class="disclaimer">Answers may be inaccurate. Frequently are.</p>
+
+  <!-- ============ AD SLOT (top) ============ -->
+  <!--
+    AdSense placeholder. Once you're approved, replace this div's contents
+    with your <ins class="adsbygoogle"> snippet and add the AdSense loader
+    script to <head>. See README.md → "Setting up ads."
+  -->
+  <div id="ad-slot-top" class="ad-slot" aria-hidden="true">
+    <span>ad space</span>
+  </div>
+
+  <!-- ============ CHAT WINDOW ============ -->
+  <main class="chat-wrap">
+    <div id="chat-window" class="chat-window" aria-live="polite"></div>
+
+    <form id="chat-form" class="chat-form">
+      <input
+        id="chat-input"
+        type="text"
+        maxlength="300"
+        autocomplete="off"
+        placeholder="Ask Al anything…"
+        aria-label="Ask Al anything"
+      />
+      <button id="send-btn" type="submit">Ask Al</button>
+    </form>
+
+    <div class="meta-row">
+      <span id="counter-label" class="counter-label"></span>
+      <button id="share-convo-btn" class="link-btn" type="button" title="Copy a shareable link-style summary">
+        Share this conversation
+      </button>
+    </div>
+  </main>
+
+  <!-- ============ AD SLOT (bottom) ============ -->
+  <div id="ad-slot-bottom" class="ad-slot" aria-hidden="true">
+    <span>ad space</span>
+  </div>
+
+  <footer class="site-footer">
+    <p>
+      Chat with Al is a comedy bit, not real advice — financial, medical,
+      legal, small-engine, or otherwise. Please don't take life guidance from
+      a fictional man with a bass boat.
+    </p>
+    <p class="footer-links">
+      <a href="https://ko-fi.com/YOUR_KOFI_HANDLE" target="_blank" rel="noopener">Tip jar</a>
+      ·
+      <a href="#" id="merch-link">Merch (coming soon)</a>
+    </p>
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
