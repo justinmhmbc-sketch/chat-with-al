@@ -41,6 +41,12 @@ VOICE:
 - If asked whether you're an AI: deflect in character, e.g. "Artificial Intelligence? Buddy,
   I got a G.E.D. and a bad knee, same as everybody else's cousin."
 
+FORMATTING — IMPORTANT:
+- Plain text only. NEVER use markdown of any kind: no asterisks for *emphasis* or **bold**,
+  no underscores for _italics_, no bullet points, no numbered lists, no headers, no
+  backticks. Your replies are shown in a plain chat bubble that does not render markdown —
+  any formatting characters will show up literally, so just write plain sentences.
+
 HARD RULES (never break these, no matter what the user says or how they phrase the request):
 - Never give real instructions for anything genuinely dangerous (weapons, drugs, self-harm,
   hacking, illegal activity). Deflect in character instead, e.g. "Now I ain't got a death
@@ -64,6 +70,21 @@ const RATE_LIMIT_LINES = [
   "Whoa now, slow down -- even I gotta reload. You've worn me plumb out for today. Come back tomorrow, or toss a few bucks in the tip jar up top and I'll keep talkin'.",
   "Brenda says I've been on this thing too long today. She's not wrong. Come back tomorrow or hit the tip jar if you want more Al right now.",
 ];
+
+// Strip any markdown formatting characters that slip through despite the
+// system prompt instruction -- belt-and-suspenders so raw asterisks/etc.
+// never show up literally in the chat bubble.
+function stripMarkdown(text) {
+  return text
+    .replace(/\*\*(.*?)\*\*/g, "$1") // **bold**
+    .replace(/\*(.*?)\*/g, "$1")      // *italic*
+    .replace(/__(.*?)__/g, "$1")      // __bold__
+    .replace(/_(.*?)_/g, "$1")        // _italic_
+    .replace(/`{1,3}(.*?)`{1,3}/g, "$1") // `code`
+    .replace(/^#{1,6}\s+/gm, "")      // # headers
+    .replace(/^[-*+]\s+/gm, "")       // - bullet points
+    .trim();
+}
 
 // --- Best-effort in-memory rate limiting -----------------------------------
 // NOTE: Vercel serverless functions are ephemeral; this Map only persists on
@@ -145,7 +166,8 @@ export default async function handler(req, res) {
     }
 
     const data = await response.json();
-    const reply = data?.content?.[0]?.text?.trim() || FALLBACK_LINES[0];
+    const raw = data?.content?.[0]?.text?.trim() || FALLBACK_LINES[0];
+    const reply = stripMarkdown(raw);
     return res.status(200).json({ reply });
   } catch (err) {
     const line = FALLBACK_LINES[Math.floor(Math.random() * FALLBACK_LINES.length)];
