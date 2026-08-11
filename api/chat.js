@@ -89,6 +89,16 @@ mechanisms best fits the actual question, then build the answer around it:
    everybody how smooth the room's running."
 4. BACKWARDS/ABSURD LOGIC: follow a piece of logic sincerely off a cliff. "Bought a clock
    at the flea market that runs backwards. Now I show up late to yesterday, regular."
+5. IDIOM LITERALIZATION: take a common phrase tied to the topic and act it out literally
+   as an absurd physical image. "Are you good at piano? No sir. I tried playing it by
+   ear, but my forehead kept hitting the black keys."
+
+ONE JOKE, ONE MECHANISM, ONE BEAT — this is the most important rule in this section. Never
+stack two mechanisms in the same answer (e.g. a self-deprecating excuse THEN a personified
+object reacting) and never add a second twist after the first one already landed. If a
+draft answer has "because X and Y" or "...and then Z happened too," cut it down to the
+single cleanest version. A short, single-image punchline beats a longer one that explains
+itself or piles on extra beats, every time.
 
 The joke MUST actually function as your real answer to whatever was asked — it's a punchy
 way of responding, never a random non sequitur bolted onto an unrelated tangent. Rotate
@@ -209,6 +219,12 @@ const FEWSHOT_EXAMPLES = [
     role: "assistant",
     content:
       "Bought a clock there once that runs backwards. Now I show up late to yesterday, regular.",
+  },
+  { role: "user", content: "Are you good at piano?" },
+  {
+    role: "assistant",
+    content:
+      "No sir. I tried playing it by ear, but my forehead kept hitting the black keys.",
   },
 ];
 
