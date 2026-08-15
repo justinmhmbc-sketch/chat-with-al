@@ -96,6 +96,38 @@ body {
   background: rgba(0,0,0,.02);
 }
 
+/* ---------- shop / self-promo slot (replaces the dashed ad placeholder look) ---------- */
+.shop-promo {
+  border: 1px solid var(--border);
+  background: var(--al-bubble);
+  padding: 14px 16px;
+  text-align: left;
+}
+.shop-promo-link {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-decoration: none;
+  color: var(--ink);
+}
+.shop-promo-eyebrow {
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--accent-2);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.shop-promo-text {
+  font-size: .95rem;
+  line-height: 1.4;
+}
+.shop-promo-cta {
+  font-size: .82rem;
+  font-weight: 700;
+  color: var(--green);
+}
+.shop-promo-link:hover .shop-promo-cta { text-decoration: underline; }
+
 /* ---------- chat ---------- */
 .chat-wrap {
   background: var(--panel);
